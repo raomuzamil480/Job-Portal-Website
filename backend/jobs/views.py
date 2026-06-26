@@ -67,9 +67,10 @@ class JobViewSet(viewsets.ModelViewSet):
 
     def get_serializer_context(self):
         return {'request': self.request}
+    
 
     def perform_create(self, serializer):
-        # Only employers can post jobs
+        # Only employers can post the  jobs
         try:
             profile = self.request.user.profile
             if profile.role != 'employer':
@@ -99,7 +100,7 @@ class JobViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated])
     def apply(self, request, pk=None):
-        """Job seeker apply kare"""
+        """Job seeker apply kare yes"""
         job = self.get_object()
 
         try:
