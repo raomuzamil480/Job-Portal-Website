@@ -7,7 +7,7 @@ function PostJob() {
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState('');
   const [form, setForm] = useState({
-    title: '', location: '', job_type: 'full-time', experience: 'entry',
+    title: '', company: '', location: '', job_type: 'full-time', experience: 'entry',
     salary_min: '', salary_max: '', description: '', requirements: '',
     skills_required: '', status: 'open', deadline: '', category_id: '',
   });
@@ -47,6 +47,11 @@ export function JobForm({ form, onChange, onSubmit, categories, error, title, su
           <div className="form-group span-2">
             <label>Job Title *</label>
             <input name="title" value={form.title} onChange={onChange} placeholder="e.g. Senior React Developer" required />
+          </div>
+
+          <div className="form-group">
+            <label>Company Name *</label>
+            <input name="company" value={form.company} onChange={onChange} placeholder="e.g. TechCorp Inc." required />
           </div>
 
           <div className="form-group">

@@ -70,7 +70,6 @@ class JobViewSet(viewsets.ModelViewSet):
     
 
     def perform_create(self, serializer):
-        # Only employers can post the  jobs
         try:
             profile = self.request.user.profile
             if profile.role != 'employer':
